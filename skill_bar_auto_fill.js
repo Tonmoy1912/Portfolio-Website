@@ -1,33 +1,46 @@
 var skill_container=document.querySelector("#skill-container");
 var arr=document.querySelectorAll("#skill-container .skill-percentage");
-var isFilled=false;
+var isFilled=new Array(arr.length);
 
-window.addEventListener('scroll',animate);
+// var isFilled=false;
 
-function fill(){
+window.addEventListener('scroll',animateToAll);
+
+function animateToAll(){
+    for(let i=0;i<arr.length;i++){
+        animate(arr[i]);
+    }
+}
+
+function fill(eleObject){
     // console.log("fill called");
-    for(let i=0;arr.length;i++){
-        let d=arr[i].getAttribute("data-percentage");
-        arr[i].style.width=d;
-    }
+    // for(let i=0;arr.length;i++){
+    //     let d=arr[i].getAttribute("data-percentage");
+    //     arr[i].style.width=d;
+    // }
+    // console.log(eleObject);
+    let d=eleObject.getAttribute("data-percentage");
+    eleObject.style.width=d;
 }
 
-function empty(){
+function empty(eleObject){
     // console.log("empty called");
-    for(let i=0;arr.length;i++){
-        // let d=arr[i].getAttribute("data-percentage")
-        arr[i].style.width=0+"%";
-    }
+    // for(let i=0;arr.length;i++){
+    //     arr[i].style.width=0+"%";
+    // }
+    // console.log(eleObject);
+    eleObject.style.width=0+"%";
 }
 
-function animate(){
-    let yPos=skill_container.getBoundingClientRect().top;
-    if(!isFilled&&window.innerHeight>yPos){
-        isFilled=true;
-        fill();
+function animate(eleObject){
+    let yPos=eleObject.getBoundingClientRect().top;
+    let index=parseInt(eleObject.getAttribute("data-index"));
+    if(!isFilled[index]&&window.innerHeight>yPos){
+        isFilled[index]=true;
+        fill(eleObject);
     }
-    else if(isFilled&&window.innerHeight<yPos){
-        isFilled=false;
-        empty();
+    else if(isFilled[index]&&window.innerHeight<yPos){
+        isFilled[index]=false;
+        empty(eleObject);
     }
 }
