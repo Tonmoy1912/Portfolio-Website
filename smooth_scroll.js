@@ -1,9 +1,12 @@
 var arr=document.querySelectorAll(".nav-button a");
-
+var prevEventId=new Array();
 var count=0;
 var endCall=0;
 
 function bringTo(event){
+    if(prevEventId.length==1){
+        clearInterval(prevEventId.pop());
+    }
     event.preventDefault();
     let sectionId=this.getAttribute("href");
     let section=document.querySelector(sectionId);
@@ -19,12 +22,13 @@ function bringTo(event){
     else{
         IdForSmoothScroll=setInterval(goUp,10);
     }
-
+    prevEventId.push(IdForSmoothScroll);
     function goDown(){
         pos=section.getBoundingClientRect();
         yIndex=pos.top;
         if(yIndex<=0){
             clearInterval( IdForSmoothScroll);
+            prevEventId.pop();
             // endCall++;
             // console.log("endCall= "+endCall);
             return ;
@@ -39,6 +43,7 @@ function bringTo(event){
         yIndex=pos.top;
         if(yIndex>=0){
             clearInterval( IdForSmoothScroll);
+            prevEventId.pop();
             // endCall++;
             // console.log("endCall= "+endCall);
             return ;
