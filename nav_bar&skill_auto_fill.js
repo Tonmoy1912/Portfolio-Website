@@ -33,6 +33,9 @@ function toggle(){
 var skill_container=document.querySelector("#skill-container");
 var arr=document.querySelectorAll("#skill-container .skill-percentage");
 var isFilled=new Array(arr.length);
+for(let i=0;i<isFilled.length;i++){
+    isFilled[i]=true;
+}
 
 // var isFilled=false;
 
