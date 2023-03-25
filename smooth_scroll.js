@@ -14,10 +14,10 @@ function bringTo(event){
         return ;
     }
     if(yIndex>0){
-        IdForSmoothScroll=setInterval(goDown,1);
+        IdForSmoothScroll=setInterval(goDown,10);
     }
     else{
-        IdForSmoothScroll=setInterval(goUp,0.01);
+        IdForSmoothScroll=setInterval(goUp,10);
     }
 
     function goDown(){
@@ -29,7 +29,7 @@ function bringTo(event){
             // console.log("endCall= "+endCall);
             return ;
         }
-        window.scrollBy(0,50);
+        window.scrollBy(0,20);
         // count++;
         // console.log("Scroll call = "+count);
     }
@@ -43,7 +43,7 @@ function bringTo(event){
             // console.log("endCall= "+endCall);
             return ;
         }
-        window.scrollBy(0,-50);
+        window.scrollBy(0,-20);
         // count++;
         // console.log("Scroll call = "+count);
     }
