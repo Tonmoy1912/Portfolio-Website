@@ -352,7 +352,7 @@ section:nth-child(2n){
     height: inherit;
     width: 70%;
     background: linear-gradient(180deg, #1330C3 0%, rgba(19, 184, 195, 0) 238.06%);
-
+    transition: 1s ease-in-out 0s;
 }
 
 .skill-indicator span{
