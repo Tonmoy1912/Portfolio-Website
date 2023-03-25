@@ -147,6 +147,9 @@ section:nth-child(2n){
         flex-direction: column;
         justify-content: space-evenly;
         z-index:10;
+        background-color: #020246;
+        /* border-bottom-left-radius: 10px ;
+        border-bottom-right-radius: 10px ; */
     }
 
     /* #nav-bar{
@@ -159,12 +162,12 @@ section:nth-child(2n){
         overflow: hidden;
     }
 
-    #nav-container:target{
+    /* #nav-container:target{
         height: 300px;
-        background-color: #020246c9;
         
         
-    }
+        
+    } */
 
     /* .test:target{
         position: fixed;
